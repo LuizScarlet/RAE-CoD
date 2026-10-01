@@ -1,0 +1,12 @@
+class_path: src.sampling.RAECoDSampler
+init_args:
+  num_steps: 100
+  time_dist_shift: 8.0
+  t_eps: 0.05
+  prediction: x
+  ig_scale: 1.78
+  ig_t_min: 0.10
+  ig_t_max: 1.0
+  cfg_scale: 1.0
+  cfg_t_min: 0.0
+  cfg_t_max: 1.0

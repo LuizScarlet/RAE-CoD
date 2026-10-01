@@ -1,0 +1,48 @@
+# Tested with lightning.pytorch==2.5.0.post0
+load: src/configs/base.yaml
+
+data:
+  train_dataset:
+    class_path: src.data.dataset.image.ImageDataset
+    init_args:
+      root: null
+      metadata: null
+      resolution: 256
+  eval_dataset:
+    class_path: src.data.dataset.image.ImageTestDataset
+    init_args:
+      root: null
+      latent_shape: [1024, 16, 16]
+  pred_dataset:
+    class_path: src.data.dataset.image.ImageTestDataset
+    init_args:
+      root: null
+      latent_shape: [1024, 16, 16]
+  train_batch_size: null
+  train_num_workers: 16
+  pred_batch_size: 16
+  pred_num_workers: 16
+
+trainer:
+  max_steps: 180000
+  val_check_interval: 10000
+  callbacks:
+    - class_path: lightning.pytorch.callbacks.ModelCheckpoint
+      init_args:
+        every_n_train_steps: 10000
+        save_top_k: -1
+        save_last: true
+    - class_path: src.callbacks.save_images.SaveImagesHook
+      init_args:
+        save_dir: eval
+        save_compressed: true
+    - class_path: lightning.pytorch.callbacks.TQDMProgressBar
+      init_args:
+        refresh_rate: 100
+
+model:
+  optimizer:
+    class_path: torch.optim.AdamW
+    init_args:
+      lr: 1.0e-4
+      weight_decay: 0.0

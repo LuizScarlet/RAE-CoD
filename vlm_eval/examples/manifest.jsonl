@@ -1,0 +1,4 @@
+{"id":"identity-control","reference":"images/reference.png","reconstruction":"images/reference.png","metadata":{"control":"identity"}}
+{"id":"blurry-control","reference":"images/reference.png","reconstruction":"images/reconstruction_blurry.png","metadata":{"control":"recognizable but blurry/corrupted"}}
+{"id":"severe-control","reference":"images/reference.png","reconstruction":"images/reconstruction_severe.png","metadata":{"control":"severe corruption"}}
+{"id":"mismatch-control","reference":"images/reference.png","reconstruction":"images/unrelated.png","metadata":{"control":"semantic mismatch"}}

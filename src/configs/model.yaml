@@ -1,0 +1,19 @@
+class_path: src.models.rae_cod.RAECoD
+init_args:
+  input_size: 16
+  in_channels: 1024
+  patch_size: [1, 1]
+  hidden_size:
+    - !define hidden_size 1440
+    - 2048
+  depth: [28, 2]
+  num_heads: [20, 16]
+  mlp_ratio: 4.0
+  num_t_tokens: 4
+  cond_dim: 1152
+  pretrained_dit_path: null
+  lora_rank: 32
+  lora_alpha: 32
+  base_model_depth: 8
+  use_aux_head: true
+  vq_only: false

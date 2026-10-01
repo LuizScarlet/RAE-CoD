@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+.venv*/
+
+# Training and inference artifacts
+outputs/
+runs/
+checkpoints/
+*.ckpt
+*.log
+.stage_complete
+wandb/
+
+# Datasets and model weights
+data/
+weights/
+*.pth
+*.pt
+*.safetensors
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
