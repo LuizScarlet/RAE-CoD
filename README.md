@@ -1,4 +1,4 @@
-<h3 align="center">Rethinking Generative Image Compression at Extremely Low Bitrates</h3>
+<h2 align="center">Rethinking Generative Image Compression at Extremely Low Bitrates</h2>
 
 
 <p align="center">
@@ -23,7 +23,7 @@
 
 - When representative codecs are pushed into this regime, they often fail abruptly: objects deform, salient entities disappear, and scenes become unrecognizable. We call this behavior **semantic collapse**.
 
-- **RAE-CoD constructs compression-oriented diffusion in a representation autoencoder space.** It preserves recognizable, naturally structured content while source consistency decreases gradually as the bitrate approaches zero.
+- **RAE-CoD constructs compression-oriented diffusion in a representation autoencoder space.** It preserves recognizable, naturally structured content while consistency decreases gradually as the bitrate approaches zero.
 
 <p align="center">
   <img src="assets/teaser.png" width="100%" alt="RAE-CoD teaser comparing semantic collapse with graceful semantic degradation">
