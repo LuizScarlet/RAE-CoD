@@ -17,7 +17,7 @@
 
 ---
 
-### 📖 Introduction
+## 📖 Introduction
 
 - Generative image codecs can synthesize plausible details at low rates, but what happens in the interval between their normal operating range and **zero bits**?  
 
@@ -30,11 +30,11 @@
 </p>
 
 
-### ✨ Highlights
+## ✨ Highlights
 
 - 🧠 **Representation-space compression.** RAE-CoD performs diffusion in the semantically structured DINOv3/RAEv2 space rather than pixel space or a reconstruction-oriented VAE latent space.
 - 🎯 **Direct semantic condition alignment.** The compressed condition is aligned with the clean source representation without a pixel reconstruction target under the severe bottleneck.
-- 🪶 **As few as 16 bits.** The dedicated endpoint transmits four 4-bit VQ indices for a 256×256 image (`0.000244` bpp) and still generates recognizable, naturally structured content.
+- 🪶 **As few as 16 bits.** The dedicated endpoint transmits four 4-bit VQ indices for a 256×256 image (`0.000244 bpp`) and still generates recognizable, naturally structured content.
 - 📉 **Graceful semantic degradation.** Semantic recognizability and quality remain nearly stable while source consistency falls smoothly, moving from reconstruction toward source-conditioned generation instead of malformed collapse.
 - 📊 **Semantic evaluation beyond distortion.** The release includes a five-VFM protocol and a blinded VLM protocol that separately measures semantic recognizability, quality, and consistency.
 
@@ -43,7 +43,7 @@
 </p>
 
 
-### 🏗️ Framework
+## 🏗️ Framework
 
 RAE-CoD combines a frozen representation autoencoder, a deep compression latent codec, and a codec-conditioned decoupled diffusion transformer. All learning objectives are defined in representation space.
 
@@ -54,7 +54,7 @@ RAE-CoD combines a frozen representation autoencoder, a deep compression latent 
 
 
 
-### 📦 Checkpoints
+## 📦 Checkpoints
 All released files contain the **EMA denoiser state used for inference**. They do not duplicate the frozen DINOv3 encoder, RAEv2 decoder, or RAEv2 normalization statistics; please obtain those assets from the official [RAEv2](https://github.com/nanovisionx/RAEv2) release.
 
 | Checkpoint | Codec mode | 
@@ -76,7 +76,7 @@ hf download LuizScarlet/RAE-CoD \
   --local-dir checkpoints
 ```
 
-### 🛠️ Installation
+## 🛠️ Installation
 
 The release was validated with Python 3.12, PyTorch 2.5, CUDA 12.x, and four NVIDIA A100 GPUs for training.
 
@@ -99,7 +99,7 @@ Prepare the following upstream assets:
 
 The VFM and VLM evaluators are independent subprojects with their own setup instructions and environments.
 
-### 🚀 Inference
+## 🚀 Inference
 
 Inputs must be 256×256 unless `--resize-images` is supplied. The checkpoint structure is detected automatically.
 
@@ -117,7 +117,7 @@ python infer_rae_cod.py \
 
 For the fixed 16-bit model, replace the checkpoint and assert its codec structure with `--hyper-only`.
 
-### 🏋️ Training
+## 🏋️ Training
 
 Training uses 256×256 images. For ordinary files, provide a root directory and a text file containing one relative image path per line.
 
@@ -165,18 +165,18 @@ python train_rae_cod.py [data and weight arguments above] \
 ```
 
 
-### 📊 Evaluation
+## 📊 Evaluation
 
-#### MSCOCO-30K
+### MSCOCO-30K
 
 [dataset/README.md](dataset/README.md) documents the exact 30,000-image list, COCO 2014 selection procedure, checksum, and deterministic shortest-side resize plus 256×256 center crop used by the paper.
 
-#### VFM Evaluation
+### VFM Evaluation
 
 The standalone [vfm_eval](vfm_eval/README.md) package evaluates Inception-v3, DINOv2, SigLIP2, CLIP, and ConvNeXt-v2 and reports paired MSE, relative MSE, cosine similarity, and distributional Fréchet distance. It also computes the five-model aggregates `RelMSE^5`, `COS^5`, and `FDr^5`; the fixed AEIC-ME FD anchor is included in the folder.
 
 
-#### VLM Evaluation
+### VLM Evaluation
 
 The standalone [vlm_eval](vlm_eval/README.md) package uses a blinded Qwen3.5-9B judge to report:
 
@@ -199,7 +199,7 @@ If you find this project useful, please cite:
 }
 ``` -->
 
-### 🙏 Acknowledgements
+## 🙏 Acknowledgements
 
 This project builds on the official [CoD](https://github.com/microsoft/GenCodec/tree/main/CoD) training framework and the official [RAEv2](https://github.com/nanovisionx/RAEv2) representation autoencoder and diffusion release. We thank all the authors and maintainers for their contributions.
 
