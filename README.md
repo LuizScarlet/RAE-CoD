@@ -199,7 +199,19 @@ If you find this project useful, please cite:
 }
 ``` -->
 
-## 🙏 Acknowledgements
+## 🙏 Citation
+
+If you find this repo helpful, please consider citing us. Thanks! 🥰
+```bibtex
+@article{zhang2026rethinking,
+  title={Rethinking Generative Image Compression at Extremely Low Bitrates},
+  author={Zhang, Tianyu and Jia, Zhaoyang and Li, Houqiang and Liu, Dong},
+  journal={arXiv preprint arXiv:2609.39315},
+  year={2026}
+}
+```
+
+## Acknowledgements
 
 This project builds on the official [CoD](https://github.com/microsoft/GenCodec/tree/main/CoD) training framework and the official [RAEv2](https://github.com/nanovisionx/RAEv2) representation autoencoder and diffusion release. We thank all the authors and maintainers for their contributions.
 
